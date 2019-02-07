@@ -3,6 +3,7 @@ package domain;
 import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collector;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public enum Operation {
@@ -40,18 +41,13 @@ public enum Operation {
 	
 	public abstract double apply(double x, double y);
 	
-/*	
-	private static final Map<String, Operation> stringToEnum = Stream.of(values()).collect(toMap(Object::toString, e->e) );
+	
+	private static final Map<String, Operation> stringToEnum = Stream.of(values()).collect(Collectors.toMap(Object::toString, e->e) );
 	
 	public static Optional<Operation> fromString(String symbol) {
 		return Optional.ofNullable(stringToEnum.get(symbol));
 	}
-
-	private static Collector toMap(Object object, Object object2) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	*/
+	
 	
 	/*
 	public double apply(double x, double y) {
