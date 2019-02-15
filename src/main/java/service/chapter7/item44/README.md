@@ -1,11 +1,11 @@
 # item44. 표준 함수형 인터페이스를 사용하라
-람다를 지원하면서 API 작성하는 모범사례가 바뀜.
+<p>람다를 지원하면서 API 작성하는 모범사례가 바뀜.</P>
 상위 클래스의 기본 메서드를 재정의해 원하는 동작을 구현하는 템플릿 메서드 패턴이 매력이 줄어듬.
 
-현대적인 해법은 같은 효과의 함수 객체를 받는 정적 팩터리나 생성자를제공
+<p>현대적인 해법은 같은 효과의 함수 객체를 받는 정적 팩터리나 생성자를제공</P>
 즉, 함수객체를 매개변수로 받는 생성자와 메서드를 더 많이 만들어야됨.
 
-LinkedHashMap, protected method removeEldestEntry
+<p>LinkedHashMap, protected method removeEldestEntry</p>
 해당 메서드의 경우, put method 호출 시 내부적으로 호출하여 map의 가장 오래된 원소를 삭제하는 매커니즘
 이것을 확장한느 클래스를 추가로 구현할 경우, removeEldestEntry method를 해당 확장 클래스에서 용도에 맞게 수정
 
@@ -85,7 +85,7 @@ public class CustomLinkedHashMap<K, V> extends LinkedHashMap<K, V> {
 단, Function 함수형 인터페이스는 반환타입만 매개변수화
 
 표준함수형 인터페이스를 유추하는 기본적인 방법
-1. 입력과 결과 타입이 모두 기본 타입이면 접두어로 srcToResult를 사용
+<p>1. 입력과 결과 타입이 모두 기본 타입이면 접두어로 srcToResult를 사용</p>
 <pre>
 <code>
 @FunctionalInterface
@@ -102,7 +102,7 @@ public interface LongToIntFunction {
 
 </code>
 </pre>
-2. 입력을 매개변수화하고 접두어로 toResult를 사용
+<p>2. 입력을 매개변수화하고 접두어로 toResult를 사용</p>
 <pre>
 <code>
 @FunctionalInterface
@@ -118,7 +118,7 @@ public interface ToLongFunction<T> {
 }
 </code>
 </pre>
-3. 기본 함수형 인터페이스 중 3개에는 인수를 2개씩 받음
+<p>3. 기본 함수형 인터페이스 중 3개에는 인수를 2개씩 받음</p>
 -> BiPredicate<T, U>, BiFunction<T, U, R>, BiConsumer<T,U>
 <pre>
 <code>
@@ -138,7 +138,7 @@ public interface BiPredicate<T, U> {
 </code>
 </pre>
 
-4.기본타임을 반환하는 세변형
+<p>4.기본타임을 반환하는 세변형</p>
 -> ToIntBiFunction<T,U>, ToLongBiFunction<T,U>, ToDoubleBiFunction<T,U>
 <pre>
 <code>
@@ -157,7 +157,7 @@ public interface ToDoubleBiFunction<T, U> {
 </code>
 </pre>
 
-5. Consumer 인터페이스 객체 참조와 기본타입 하나를 받는 변형 인터페이스
+<p>5. Consumer 인터페이스 객체 참조와 기본타입 하나를 받는 변형 인터페이스</p>
 -> ObjDoubleConsumer<T>, ObjIntConsumer<T>, ObjLongConsumer<T>
 <pre>
 <code>
