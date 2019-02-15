@@ -6,8 +6,8 @@
 즉, 함수객체를 매개변수로 받는 생성자와 메서드를 더 많이 만들어야됨.
 
 <p>LinkedHashMap, protected method removeEldestEntry</p>
-해당 메서드의 경우, put method 호출 시 내부적으로 호출하여 map의 가장 오래된 원소를 삭제하는 매커니즘
-이것을 확장한느 클래스를 추가로 구현할 경우, removeEldestEntry method를 해당 확장 클래스에서 용도에 맞게 수정
+해당 메서드의 경우, put method 호출 시 내부적으로 호출하여 map의 가장 오래된 원소를 삭제하는 매커니즘  
+이것을 확장하는 클래스를 추가로 구현할 경우, removeEldestEntry method를 해당 확장 클래스에서 용도에 맞게 수정
 
 <pre>
 <code>
