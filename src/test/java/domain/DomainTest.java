@@ -73,4 +73,16 @@ public class DomainTest {
 			System.out.printf("%f %s %f = %f%n", x, op, y, op.apply(x, y));
 		}
 	}
+	
+	@Test
+	public void simpleBigram() {
+		System.out.println("simpleBigram >>");
+		Set<Bigram> s = new HashSet<Bigram>();
+		for(int i=0;i<10;i++) {
+			for(char ch='a';ch<='z';ch++) {
+				s.add(new Bigram(ch, ch));
+			}
+		}
+		System.out.println(s.size());
+	}
 }
