@@ -86,6 +86,7 @@ public class CustomLinkedHashMap<K, V> extends LinkedHashMap<K, V> {
 
 표준함수형 인터페이스를 유추하는 기본적인 방법
 <p>1. 입력과 결과 타입이 모두 기본 타입이면 접두어로 srcToResult를 사용</p>
+
 <pre>
 <code>
 @FunctionalInterface
@@ -103,6 +104,7 @@ public interface LongToIntFunction {
 </code>
 </pre>
 <p>2. 입력을 매개변수화하고 접두어로 toResult를 사용</p>
+
 <pre>
 <code>
 @FunctionalInterface
@@ -120,6 +122,7 @@ public interface ToLongFunction<T> {
 </pre>
 <p>3. 기본 함수형 인터페이스 중 3개에는 인수를 2개씩 받음</p>
 -> BiPredicate<T, U>, BiFunction<T, U, R>, BiConsumer<T,U>
+
 <pre>
 <code>
 @FunctionalInterface
@@ -172,20 +175,24 @@ public interface ObjDoubleConsumer<T> {
      */
     void accept(T t, double value);
 }
-
 </code>
 </pre>
 
-표준 함수형 인터페이스 대부분은 기본 타입만 지원, 기본 함수형 인터페이스에 박싱된 기본 타입을 넣어 사용하지는 말자
+<p>표준 함수형 인터페이스 대부분은 기본 타입만 지원,</p>
+기본 함수형 인터페이스에 박싱된 기본 타입을 넣어 사용하지는 말자
 동작은 하지만, 계산량이 많을 때는 성능저하
 
-표준함수형 인터페이스가 존재하더라도 직접 작성해야하는 사례
-책 266 페이지 마지막 단락 참조
+<p>표준함수형 인터페이스가 존재하더라도 직접 작성해야하는 사례</p>
+* 자주 쓰이며, 이름 자체가 용도를 명확히 설명해준다.
+* 반드시 따라야 하는 규약이 있다.
+* 유용한 디폴트 메서드를 제공할 수 있다.
+
+(책 266 페이지 마지막 단락 참조)
 
 전용함수형 인터페이스를 작성할 경우, 인터페이스임을 명심해야하며 @FUnctionalInterface 애너테이션을 사용
-책 267 페이지 두 번째 단락 참조
+(책 267 페이지 두 번째 단락 참조)
 
-함수형 인터페이스 API 사용 시, 중의 사항으로 서로 다른 함수형 인터페이스를 같은 위치의 인수로 받는 메서드들을 다중정의 금지
+함수형 인터페이스 API 사용 시, 주의 사항으로 서로 다른 함수형 인터페이스를 같은 위치의 인수로 받는 메서드들을 다중정의 금지
 <pre>
 <code>
 <T> Future<T> submit(Callable<T> task);
@@ -217,6 +224,5 @@ public interface ObjDoubleConsumer<T> {
      * @throws NullPointerException if the task is null
      */
     Future<?> submit(Runnable task);
-
 </code>
 </pre>
